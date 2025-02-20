@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <radialGradient id="collapsedGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:black;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:black;stop-opacity:0" />
+    </radialGradient>
+    
+    <filter id="particleBlurCollapsed">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+    </filter>
+  </defs>
+
+  <!-- Background sphere -->
+  <circle cx="540" cy="540" r="400" fill="url(#collapsedGradient)" />
+
+  <!-- Intense particle vortex -->
+  <g filter="url(#particleBlurCollapsed)">
+    <path d="M 540,540 
+             C 520,520 560,520 540,500
+             C 520,480 560,480 540,460"
+          stroke="red" fill="none" stroke-width="3" opacity="0.8">
+      <animate attributeName="d" 
+               dur="1s" 
+               repeatCount="indefinite"
+               values="
+                 M 540,540 C 520,520 560,520 540,500 C 520,480 560,480 540,460;
+                 M 540,540 C 560,520 520,520 540,500 C 560,480 520,480 540,460;
+                 M 540,540 C 520,520 560,520 540,500 C 520,480 560,480 540,460"
+      />
+    </path>
+  </g>
+
+  <!-- Singularity point -->
+  <circle cx="540" cy="540" r="2" fill="white">
+    <animate attributeName="r"
+             values="2;3;2"
+             dur="0.5s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Intense ripples -->
+  <g opacity="0.6">
+    <circle cx="540" cy="540" r="100" 
+            stroke="orange" 
+            fill="none" 
+            stroke-width="1">
+      <animate attributeName="r"
+               values="100;50;100"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="540" cy="540" r="150" 
+            stroke="yellow" 
+            fill="none" 
+            stroke-width="1">
+      <animate attributeName="r"
+               values="150;75;150"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Sparse electrical arcs -->
+  <g opacity="0.4">
+    <path d="M 540,520 
+             Q 560,530 540,540
+             Q 520,550 540,560"
+          stroke="blue" 
+          fill="none" 
+          stroke-width="1">
+      <animate attributeName="d"
+               dur="0.3s"
+               repeatCount="indefinite"
+               values="
+                 M 540,520 Q 560,530 540,540 Q 520,550 540,560;
+                 M 540,520 Q 520,530 540,540 Q 560,550 540,560;
+                 M 540,520 Q 560,530 540,540 Q 520,550 540,560"
+      />
+    </path>
+  </g>
+</svg>
